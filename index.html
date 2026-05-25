@@ -3,56 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AI Hustle Studio — The AI That Works While You Sleep</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Syne',sans-serif;background:#040408;color:#e2e8f0;min-height:100vh;}
-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;
-  background:rgba(48,43,99,0.8);backdrop-filter:blur(16px);border-bottom:1px solid #302b6333;
-  position:sticky;top:0;z-index:50;}
-.logo{font-weight:800;font-size:18px;color:#fff;}
-.nav-btns{display:flex;gap:10px;}
-.btn-ghost{padding:8px 18px;border-radius:8px;background:transparent;
-  border:1px solid rgba(255,255,255,0.2);color:#94a3b8;cursor:pointer;
-  font-family:inherit;font-size:13px;font-weight:600;}
-.btn-primary{padding:8px 18px;border-radius:8px;background:#7c3aed;
-  border:none;color:#fff;cursor:pointer;font-family:inherit;font-size:13px;font-weight:700;}
-.hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;padding:60px 24px;}
-h1{font-size:clamp(40px,7vw,80px);font-weight:800;line-height:1.1;
-  background:linear-gradient(135deg,#fff 40%,#7c3aed);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;}
-.sub{font-size:16px;color:#64748b;max-width:500px;margin:0 auto 36px;line-height:1.7;}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
-.btn-big{padding:14px 32px;border-radius:12px;font-size:15px;font-weight:700;
-  cursor:pointer;font-family:inherit;}
-.stats{display:flex;gap:40px;margin-top:60px;flex-wrap:wrap;justify-content:center;}
-.stat-num{font-size:32px;font-weight:800;color:#7c3aed;}
-.stat-label{font-size:12px;color:#64748b;margin-top:4px;}
-</style>
+<title>AI Hustle Studio</title>
 </head>
 <body>
-<nav>
-  <div class="logo">AI Hustle Studio</div>
-  <div class="nav-btns">
-    <button class="btn-ghost" onclick="location.href='/login'">Sign In</button>
-    <button class="btn-primary" onclick="location.href='/login'">Start Free →</button>
-  </div>
-</nav>
-<div class="hero">
-  <h1>The AI that works<br/>while you sleep</h1>
-  <p class="sub">Six powerful AI tools built for freelancers, creators, and entrepreneurs. Generate income on autopilot.</p>
-  <div class="hero-btns">
-    <button class="btn-big btn-primary" onclick="location.href='/login'">Start Free — No Card Required →</button>
-    <button class="btn-big btn-ghost" onclick="location.href='/login'">Sign In</button>
-  </div>
-  <div class="stats">
-    <div class="stat"><div class="stat-num">6</div><div class="stat-label">AI Tools</div></div>
-    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Day Free Trial</div></div>
-    <div class="stat"><div class="stat-num">$0</div><div class="stat-label">To Start</div></div>
-  </div>
-</div>
+<div id="root"></div>
 <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
