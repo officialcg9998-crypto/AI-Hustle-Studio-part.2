@@ -5,7 +5,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import Login from "./Login";
 
-const OWNER_EMAIL = "YOUR_EMAIL_HERE";
+const OWNER_EMAIL = "officialcg9998@gmail.com";
 
 const TOOLS = [
   { id:"pricing",   icon:"💰", name:"Pricing Advisor",     tier:"free",    desc:"Smart competitive pricing" },
