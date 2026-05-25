@@ -1,5 +1,10 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { auth, db } from "./firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { doc, getDoc, serverTimestamp } from "firebase/firestore";
+import Login from "./Login";
+
 
 
 // ─── CONSTANTS ────────────────────────────────────────────────────────────────
@@ -723,16 +728,56 @@ function Toggle({on,tint}) {
 import Login from "./Login";
 
 export function Root() {
+  const [user, setUser] = useState(null);
+  const [tier, setTier] = useState("free");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    return onAuthStateChanged(auth, async (u) => {
+      if (u) {
+        setUser(u);
+        const snap = await getDoc(doc(db, "users", u.uid));
+        if (snap.exists()) {
+          const data = snap.data();
+          const isOwner = u.email === "officialcg9998@gmail.com";
+          if (isOwner) {
+            setTier("unlimited");
+          } else if (data.tier === "trial") {
+            const start = data.trialStart?.toDate();
+            const days = start ? (Date.now() - start) / 86400000 : 999;
+            setTier(days < 7 ? "trial" : "free");
+          } else {
+            setTier(data.tier || "free");
+          }
+        }
+      } else {
+        setUser(null);
+        setTier("free");
+      }
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) return (
+    <div style={{minHeight:"100vh",background:"#040408",display:"flex",
+      alignItems:"center",justifyContent:"center",color:"#fff",fontSize:18}}>
+      Loading...
+    </div>
+  );
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/dashboard" element={<App />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={
+          user ? <App tier={tier} user={user} /> : <Navigate to="/login" />
+        } />
       </Routes>
     </BrowserRouter>
   );
 }
+
 
 function Landing() {
   useEffect(() => {
