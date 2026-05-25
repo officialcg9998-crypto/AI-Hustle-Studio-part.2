@@ -201,12 +201,13 @@ export default function App() {
             ))}
           </div>
           <div style={{display:"flex",gap:8}}>
-            <button style={{padding:"6px 14px",borderRadius:8,background:"transparent",
-              border:`1px solid ${tabTintColor}55`,color:"#94a3b8",cursor:"pointer",fontSize:12,fontFamily:"inherit"}}>Sign In</button>
-            <button style={{padding:"6px 14px",borderRadius:8,
-              background:`linear-gradient(135deg,${tabTintColor},${tabTintColor}bb)`,
-              border:"none",color:"#fff",cursor:"pointer",fontSize:12,fontFamily:"inherit",fontWeight:700,
-              boxShadow:`0 0 12px ${tabTintColor}44`}}>Free Trial</button>
+            <a href="/login" style={{padding:"6px 14px",borderRadius:8,background:"transparent",
+  border:`1px solid ${tabTintColor}55`,color:"#94a3b8",cursor:"pointer",fontSize:12,fontFamily:"inherit",textDecoration:"none"}}>Sign In</a>
+<a href="/login" style={{padding:"6px 14px",borderRadius:8,
+  background:`linear-gradient(135deg,${tabTintColor},${tabTintColor}bb)`,
+  border:"none",color:"#fff",cursor:"pointer",fontSize:12,fontFamily:"inherit",fontWeight:700,
+  boxShadow:`0 0 12px ${tabTintColor}44`,textDecoration:"none"}}>Free Trial</a>
+
           </div>
         </nav>
 
