@@ -720,12 +720,15 @@ function Toggle({on,tint}) {
     </div>
   );
 }
+import Login from "./Login";
+
 export function Root() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/dashboard" element={<App />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
