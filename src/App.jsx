@@ -1,4 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 // ─── CONSTANTS ────────────────────────────────────────────────────────────────
 const TABS = [
@@ -716,4 +718,21 @@ function Toggle({on,tint}) {
         background:"#fff",transition:"left .2s",boxShadow:"0 1px 3px rgba(0,0,0,0.4)"}}/>
     </div>
   );
+}
+export function Root() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/dashboard" element={<App />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+function Landing() {
+  useEffect(() => {
+    window.location.href = "/landing.html";
+  }, []);
+  return null;
 }
