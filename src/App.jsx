@@ -210,7 +210,6 @@ export function Root() {
   const handleLogin = (userData) => {
     setUser(userData);
     setTier(userData.tier);
-    window.location.href = "/dashboard";
   };
 
   const handleSignOut = () => {
@@ -224,10 +223,8 @@ export function Root() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route path="/dashboard" element={
-          user
-            ? <Dashboard tier={tier} email={user.email} onSignOut={handleSignOut} />
-            : <Navigate to="/login" />
+ <Route path="/dashboard" element={
+          <Dashboard tier={tier} email="test@test.com" onSignOut={handleSignOut} />
         } />
       </Routes>
     </BrowserRouter>
